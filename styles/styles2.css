@@ -1,0 +1,40 @@
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding-top: 10px;
+    width: calc(100% - 250px);
+    height: 40px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    font-weight: bolder;
+    height: 100%;
+    font-size: 2em;
+}
+
+header img {
+    height: 90%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px;
+    height: 20px;
+    color: #252525;
+}
+
+.generador:hover{
+    color: #8c52ff;
+}
