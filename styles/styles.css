@@ -61,28 +61,25 @@ input {
     margin: 5px;
 }
 
-input[type="button"] {
-    color: #ffffff;
-    background-color: #8c52ff;
-    height: 3em;
-}
 
 /* Paleta de Colores */
-#generador {
+#formContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-#generador .inputs {
+#formContainer form {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: medium ;
     width: 100%;
     max-width: 300px;
 }
 
-#resultado {
+#colors {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -92,7 +89,7 @@ input[type="button"] {
     margin: 2em;
 }
 
-#resultado div {
+#colors div {
     background-color: #00000010;
     border-radius: 10px;
     width: 30vw;
@@ -103,9 +100,6 @@ input[type="button"] {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#resultado div div {
     color: white;
     mix-blend-mode: difference;
 }

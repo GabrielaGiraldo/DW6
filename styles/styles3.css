@@ -1,0 +1,33 @@
+/* Botones */
+button.b_lleno {
+    background-color: #8c52ff;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: medium;
+    height: 50px;
+}
+
+button.boton_inicio{
+    width:150px;
+    height: 45px;
+    font-size: large;
+    color: #000;
+    background-color: #8c52ff;  
+    border: none; 
+}
+
+button.boton{
+    width:150px;
+    height: 45px;
+    font-size: large;
+    color: #000;
+    background-color: #ffffff;  
+    border: none; 
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}

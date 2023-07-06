@@ -1,62 +1,78 @@
-function rgbhex(red,green,blue) { 
+const form = document.querySelector("form")
+const input = document.querySelector("#hex")
+const colorsDiv = document.querySelector("#colors")
 
-    function stop(color) { 
-        return Math.min(Math.max(color, 0), 255)
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const hex = input.value;
+
+    if (!isValidHex(hex)) {
+        alert("Ingrese un código hexadecimal válido.");
+        return;
     }
 
-    let rgb = [stop(red), stop(green), stop(blue)]
-    let hex = [rgb[0].toString(16), rgb[1].toString(16), rgb[2].toString(16)]
+    const colors = generateColors(hex);
+    renderColors(colors);
+});
 
-    hex = hex.map(item => {
-        if (item.length == 1) return "0" + item
-        return item
-    })
-
-    return ("#" + hex.join('').toUpperCase())
+function isValidHex(hex) {
+    return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex);
 }
 
-function hexrgb(hex) {
-    let hexc = hex.replace("#","").split("")
-    if (hexc.length < 6) return
+function generateColors (hex){
+    const baseRgb = hexToRgb(hex);
+    const colorVariations = [
+        {r: -30, g: 0, b: 0},
+        {r: 0, g: -30, b: 0},
+        {r: 0, g: 0, b: -30},
+        {r: 30, g: 0, b: 0},
+        {r: 0, g: 30, b: 0},
+        {r: 0, g: 0, b: 30},
+    ];
 
-    let red = ""
-    let green = ""
-    let blue = ""
-    
-    hexc.forEach(element => {
-        if (red.length == 0 || red.length < 2) return red += element
-        if (green.length == 0 || green.length < 2) return green += element
-        if (blue.length == 0 || blue.length < 2) return blue += element
+    const colors = colorVariations.map((variation) =>{
+        return {
+            r: Math.min(255, Math.max(0, baseRgb.r + variation.r)),
+            g: Math.min(255, Math.max(0, baseRgb.g + variation.g)),
+            b: Math.min(255, Math.max(0, baseRgb.b + variation.b)),
+        };
     });
 
-    let colores = [red, green, blue];
-    
-    colores = colores.map(item => { 
-        return parseInt(item, 16)
-    })
-    
-    if (isNaN(colores[0]) || isNaN(colores[1]) || isNaN(colores[2])) return 
-    return colores
+    return colors;
 }
 
-const color = document.querySelector('#color')
-const resultado = document.querySelector("#resultado").querySelectorAll("div")
+function hexToRgb(hex) {
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
 
-function generador() { 
-    let rgb_base = hexrgb(color.value)
-    color.value = ""
-    if (rgb_base == undefined) return
+    return { r, g, b };
+}
 
-    resultado.forEach(div => {
-        
-        let r = Math.floor(rgb_base[0] * Math.random())
-        let g = Math.floor(rgb_base[1] * Math.random())
-        let b = Math.floor(rgb_base[2] * Math.random())
-        
-        let res = rgbhex(r, g, b)
-        if (res != undefined) {
-            div.innerHTML = `<div>${[r,g,b].join(", ")}<br>${res}</div>`
-            div.style.backgroundColor = res
-        }
-    })
+function renderColors(colors){
+    colorsDiv.innerHTML = "";
+
+    colors.forEach((color) => {
+        const colorbox = document.createElement("div");
+        colorbox.className = "color-code";
+        colorbox.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+
+        const colorCode = document.createElement("div");
+        colorCode.className = "color-code";
+        colorCode.innerText = `RGB: ${color.r}, ${color.g}, ${
+            color.b
+        }\nHEX: ${rgbToHex(color.r, color.g, color.b)}`;
+
+        colorbox.appendChild(colorCode);
+        colorsDiv.appendChild(colorbox);
+    });
+}
+
+function rgbToHex(r, g, b){
+    const hexR = r.toString(16).padStart(2, "0");
+    const hexG = g.toString(16).padStart(2, "0");
+    const hexB = b.toString(16).padStart(2, "0");
+
+    return `#${hexR}${hexG}${hexB}`;
 }
