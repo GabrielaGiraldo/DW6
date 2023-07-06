@@ -1,12 +1,12 @@
 /* Botones */
-button.b_lleno {
-    background-color: #8c52ff;
-    border: none;
-    border-radius: 5px;
+
+button .boton_m {
+    width:150px;
+    height: 45px;
+    font-size: large;
     color: #000;
-    font-family: 'Lucida Sans', sans-serif;
-    font-size: medium;
-    height: 50px;
+    background-color: #8c52ff;  
+    border: none; 
 }
 
 button.boton_inicio{
