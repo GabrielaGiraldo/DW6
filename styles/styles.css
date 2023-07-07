@@ -1,6 +1,7 @@
 /* Etiquetas Globales */
 html {
     min-height: 100%;
+    scroll-behavior: smooth;
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -16,6 +17,11 @@ main {
 
 section {
     margin: calc(50vh - 50px) auto;
+}
+
+#texto{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: x-large;
 }
 
 .rosa{

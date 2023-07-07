@@ -24,10 +24,10 @@
     <!--Contenido-->
     <main>
         <!--Información central-->
-        <section>
+        <section id="texto">
             <h1>Genera <span class="rosa">increibles</span> paletas de colores</h1>
             <p>¿Buscas una paleta de colores para tu página? usa nuestra web</p>
-            <button class="boton_inicio"><a href="#formContainer">Iniciar ahora</a></button>
+            <button class="boton_inicio" href=""><a href="#formContainer">Iniciar ahora</a></button>
             <button class="boton" href="#">Conocer mas</button>
         </section>
         <!--Generador-->
@@ -35,7 +35,7 @@
             <form>
                 <label for="hex">Ingrese un código hexadecimal:</label>
                     <input type="text" placeholder="#FFFFFF" id="hex" maxlengt h="7" onchange="addEventListener()">
-                <button type="submit" class="b_lleno" onclick="generateColors()"><span>Generar</span></button>
+                <button type="submit" class="b_lleno" onclick="addEventListener()"><span>Generar</span></button>
             </form>
             <div id="colors"></div>
         </section>
