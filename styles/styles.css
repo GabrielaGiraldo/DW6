@@ -83,3 +83,14 @@ input {
     color: white;
     mix-blend-mode: difference;
 }
+
+#codigo{
+    font-family: 'Lucida Sans',sans-serif;
+    font-size: large;
+    margin: 4px;
+}
+
+#hex{
+    margin: 15px;
+    width: 85%;
+}

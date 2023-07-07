@@ -1,10 +1,10 @@
 /* Botones */
 
 .boton_m{
-    width:150px;
-    height: 45px;
+    width:100px;
+    height: 40px;
     border-radius: 5px;
-    font-size: large;
+    font-size: medium;
     color: #000;
     background-color: #8c52ff;  
     border: none; 
@@ -20,20 +20,20 @@
     border: none; 
 }
 
-button.boton_inicio{
+.boton_inicio{
     border-radius: 5px;
     width:150px;
     height: 45px;
-    font-size: large;
+    font-size: x-large;
     color: #000;
     background-color: #8c52ff;  
     border: none; 
 }
 
-button.boton{
-    width:150px;
+.boton{
+    width: 200px;
     height: 45px;
-    font-size: large;
+    font-size: x-large;
     color: #000;
     border-radius: 5px;
     background-color: #ffffff;  
@@ -43,4 +43,10 @@ button.boton{
 a{
     text-decoration: none;
     color: #000;
+}
+
+#generador{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: medium;
+    width: 100px;
 }
